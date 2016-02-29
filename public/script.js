@@ -14,28 +14,29 @@ function Canvas(canvId, w, h) {
     this.startY = 0;
     this.width = Number.parseInt(w);
     this.height = Number.parseInt(h);
-    this.flag = false;
+    this.dragFlag = false;
     this.img = '';
     this.canv.addEventListener('mousedown', function(evt) {
-        // console.log(self.canvId);
         self.prevX = evt.layerX;
         self.prevY = evt.layerY;
-        self.flag = true;
+        self.dragFlag = true;
     });
     this.canv.addEventListener('mousemove', function(evt) {
-        if (self.flag) {
+        if (self.dragFlag) {
             var newX = Number.parseInt((evt.layerX - self.prevX)/5);
             var newY = Number.parseInt((evt.layerY - self.prevY)/5);
-            // console.log(self.startX);
+
             newX += self.startX; 
-            console.log(newX + self.width);
             newY += self.startY; 
+
             if (newX >= 0 && (newX + self.width) <= recommendedWidth) {
                 self.startX = newX;
             }
+
             if (newY >= 0 && (newY + self.height) <= recommendedHeight) {
                 self.startY = newY;
             }
+
             self.draw();
         }
     });
@@ -45,7 +46,6 @@ function Canvas(canvId, w, h) {
 Canvas.prototype.draw = function() {
     this.ctx.clearRect(0, 0, recommendedWidth, recommendedWidth);
     this.drawImage();
-    // console.log(this.startX);
     this.ctx.strokeRect(this.startX, this.startY, this.width, this.height);
 }
 
@@ -61,7 +61,7 @@ window.onload = function() {
 
     document.addEventListener('mouseup', function() {
         canv.forEach(function(c) {
-            c.flag = false;
+            c.dragFlag = false;
             var attr = c.canvId.split('_canvas');
             document.getElementsByName(attr[0]+'_X')[0].value = c.startX;
             document.getElementsByName(attr[0]+'_Y')[0].value = c.startY;
@@ -72,10 +72,8 @@ window.onload = function() {
 window.formSubmit = function() {
     if (!validForm) {
         alert('The image is not the recommended size!');
-    } else {
-        canv.forEach(function(c) {
-        });
     }
+
     return validForm;
 }
 

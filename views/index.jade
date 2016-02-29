@@ -5,8 +5,6 @@ html
         title Upload Image
         style
             include ../public/style.css
-        script
-            include ../public/script.js
     body
         h1 Image Uploader
         h4 Please upload an image (recommended size - 1024 x 1024):
@@ -21,3 +19,6 @@ html
         - each layout in layouts
             h3=layout[0]
             canvas(width='1024', height='1024', id=(layout[0])+'_canvas', data-width=(layout[1]), data-height=(layout[2]))
+            
+        script
+            include ../public/script.js

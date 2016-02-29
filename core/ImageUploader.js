@@ -12,12 +12,7 @@ function ImageUploader(image, layouts) {
     layouts.forEach(function(ele) {
         self.layouts[ele[0]] = {width: ele[1], height: ele[2]};
     });
-    // this.layouts = {
-    //     horizontal: {width: 755, height: 450},
-    //     vertical: {width: 365, height: 450},
-    //     horizontal_small: {width: 365, height: 212},
-    //     default: {width: 380, height: 380}
-    // };
+
     this.saveCount = Object.keys(this.layouts).length;
 
     var img = new Images();
@@ -55,7 +50,6 @@ ImageUploader.prototype.crop = function(type, x, y, cb) {
     };
 
     inkjet.encode(newImgdata, options, function(err, encoded) {
-        // return cb(null, fs.writeFileSync(self.uri+'.jpg', new Buffer(encoded.data)));
         return self.upload(new Buffer(encoded.data), cb);
     });
 };

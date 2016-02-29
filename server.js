@@ -12,15 +12,19 @@ mongoose.connect(database);
 app.set('view engine', 'jade');
 app.set('views', process.cwd() + '/views');
 
+//Log requests
 app.use(function(req, res, next) {
     console.log(req.method, req.url);
     next();
-})
+});
 
+//Display form
 app.get('/form', indexCtrl);
 
+//Handle form upload
 app.post('/form', uploadCtrl);
 
+//Display gallery of images
 app.get('/gallery/:uri', galleryCtrl);
 
 app.listen(port);
