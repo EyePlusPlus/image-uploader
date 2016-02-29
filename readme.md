@@ -6,7 +6,7 @@ Crops image to pre-defined layouts and uploads to cloud.
 
 ```sh
 $ git clone [git-repo-url]
-$ cd dillinger
+$ cd image-uploader
 $ npm install
 ```
 
