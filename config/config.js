@@ -1,4 +1,4 @@
 module.exports = {
-    client_id: 'Client-ID 4280bb314cd3614',
+    client_id: 'Client-ID <INSERT CLIENT ID HERE>',
     mongo_url: 'mongodb://localhost:27017/imagedb'
 };
