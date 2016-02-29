@@ -1,0 +1,18 @@
+{
+  "name": "image-uploader",
+  "version": "0.1.0",
+  "description": "Accepts image from client, crops to specific sizes and uploads to cloud",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mansi Shah",
+  "license": "MIT",
+  "dependencies": {
+    "busboy": "^0.2.12",
+    "express": "^4.13.4",
+    "inkjet": "^2.0.0",
+    "jade": "^1.11.0",
+    "mongoose": "^4.4.5"
+  }
+}

@@ -1,0 +1,12 @@
+doctype html
+html
+    head
+        title Image Gallery
+        style
+            include ../public/style.css
+    body
+        h1 Image Gallery
+
+        - each i, type in img
+            h4=type
+            img(src=i)
